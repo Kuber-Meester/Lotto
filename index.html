@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lotto Number Generator</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <script>
+function generateNumber() {
+  var min = 1;
+  var max = 53;
+  var randomNumbers = new Set();
+
+  while (randomNumbers.size < 7) {
+    var randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+    randomNumbers.add(randomNumber);
+  }
+  var generatedNumbers = Array.from(randomNumbers);
+for(var i=0;i<generatedNumbers.length;i++){
+    document.getElementById("result"+(i+1)).innerHTML = generatedNumbers[i];
+}
+
+}
+</script>
+<div id="main">
+  <div class="grid-container">
+    <div id="result1"></div>
+    <div id="result2"></div>
+    <div id="result3"></div>
+    <div id="result4"></div>
+    <div id="result5"></div>
+    <div id="result6"></div>
+    <div id="result7"></div>
+  </div>
+  <form>
+    <input type="button" value="Generate" onclick="generateNumber()">
+    <!-- <input type="text" id="result"> -->
+  </form>
+</div>
+</body>
+</html>
